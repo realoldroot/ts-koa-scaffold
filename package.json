@@ -1,0 +1,62 @@
+{
+  "name": "ts-koa-scaffold",
+  "version": "1.0.0",
+  "description": "typescript + koa2 ",
+  "main": "dist/index.js",
+  "author": "zhengenshen@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm-run-all clean tsc",
+    "build:staging_testnet": "env-cmd -f .env.staging_testnet npm-run-all clean tsc",
+    "build:staging_mainnet": "env-cmd -f .env.staging_mainnet npm-run-all clean tsc",
+    "clean": "rimraf dist",
+    "format": "PM_RUN prettier --write",
+    "lint": "eslint --ext js,jsx,ts,tsx .",
+    "nodemon": "nodemon --watch dist",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{css,html,js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
+    "start": "node dist/index.js",
+    "dev": "npm-run-all build --parallel tsc:watch nodemon",
+    "test": "npm-run-all lint test:format",
+    "test:format": "PM_RUN prettier --check",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "env-cmd": "^10.1.0",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.12.0-beta.1",
+    "sequelize-typescript": "^2.1.1",
+    "source-map-support": "^0.5.16",
+    "sqlite3": "^5.0.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-static": "^4.0.2",
+    "@types/node": "^16.11.12",
+    "@types/validator": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "prettier": {
+    "trailingComma": "all"
+  }
+}
